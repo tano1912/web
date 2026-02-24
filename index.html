@@ -104,9 +104,30 @@
                 <div class="input-container">
                     <textarea name="message" placeholder="Detalles de la consulta"></textarea>
                 </div>      
-                <input type="submit" name="send" class="btn" onClick="myFunction()">
+                <button type="button" class="btn" onclick="enviarWhatsApp()">Enviar</button>
+                <script>
+function enviarWhatsApp() {
 
+    let nombre = document.querySelector('input[name="name"]').value;
+    let telefono = document.querySelector('input[name="phone"]').value;
+    let email = document.querySelector('input[name="email"]').value;
+    let mensaje = document.querySelector('textarea[name="message"]').value;
 
+    let numeroWhatsApp = "584247269993"; // 🔴 Cambia por tu número con código país
+    // Ejemplo Venezuela: 584141234567
+    // Ejemplo USA: 15551234567
+
+    let texto = "Hola, quiero agendar una consulta:%0A%0A" +
+                " Nombre: " + nombre + "%0A" +
+                " Teléfono: " + telefono + "%0A" +
+                " Email: " + email + "%0A" +
+                " Mensaje: " + mensaje;
+
+    let url = "https://wa.me/" + numeroWhatsApp + "?text=" + texto;
+
+    window.open(url, "_blank");
+}
+</script>
             </div>
 
         </form>
